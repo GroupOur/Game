@@ -40,6 +40,20 @@ def setDifficulty():
         return setDifficulty()
 
 
+def playLevel(counter, task, list_numbers, difficulty):
+    print("Битва №", counter, end="\n\n")
+    print(*list_numbers, end="\n\n")
+    user_number = list_numbers[0]
+    while user_number in list_numbers:
+        user_number = int(
+            input("Із вище наведених чисел виберіть", task[1], "--> "))
+    updateNumbers(list_numbers, user_number, difficulty)
+    if task[0](user_number):
+        return 1
+    else:
+        return -2
+
+
 def updateNumbers(list_numbers, number, difficulty):
     import random
     list_numbers.remove(number)
