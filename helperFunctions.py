@@ -15,6 +15,13 @@ def isUlam(number):
     return number in ulams
 
 
+def fairyTail():
+    print("Нашу землю ось-ось захоплять інопланетяни! Їхні технології кращі за наші,\
+     проте вони не знають ні чисел Улама, ні простих чисел, ні вдалих! Ваше завдання - захистити\
+      людство шляхом класифікації даних вам чисел за цими ознаками. Ви виграєте, якщо за 15 ходів наберете більше 10 балів.\
+      За кожну правильну відповідь вам нараховується один бал, за кожну неправильну знімається два бали Хай щастить!", end="\n\n\n")
+
+
 def setDifficulty():
     """
     Some kind of user interface
@@ -31,6 +38,20 @@ def setDifficulty():
         return 100
     else:
         return setDifficulty()
+
+
+def updateNumbers(list_numbers, number, difficulty):
+    import random
+    list_numbers.remove(number)
+    new_number = random.randrange(1, difficulty+1)
+    while new_number in list_numbers:
+        new_number = random.randrange(1, difficulty+1)
+    list_numbers.append(new_number)
+
+
+def genTask():
+    import random
+    return random.choice(["ulam", "lucky", "easy"])
 
 
 def genNumbers(difficulty):

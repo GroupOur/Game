@@ -1,2 +1,8 @@
+from helperFunctions import *
+
+
 def Game():
-    pass
+    fairyTail()
+    difficulty = setDifficulty()
+    numbers = genNumbers(difficulty)
+    tasks = {"ulam": isUlam}
