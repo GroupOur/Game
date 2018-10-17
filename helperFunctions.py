@@ -16,10 +16,7 @@ def isUlam(number):
 
 
 def fairyTail():
-    print("Нашу землю ось-ось захоплять інопланетяни! Їхні технології кращі за наші,\
-     проте вони не знають ні чисел Улама, ні простих чисел, ні вдалих! Ваше завдання - захистити\
-      людство шляхом класифікації даних вам чисел за цими ознаками. Ви виграєте, якщо за 15 або і менше ходів наберете 10 балів.\
-      За кожну правильну відповідь вам нараховується один бал, за кожну неправильну знімається два бали Хай щастить!", end="\n\n\n")
+    print("Нашу землю ось-ось захоплять інопланетяни! Їхні технології кращі за наші,проте вони не знають ні чисел Улама, ні простих чисел, ні вдалих! Ваше завдання - захистити людство шляхом класифікації даних вам чисел за цими ознаками. Ви виграєте, якщо за 15 або і менше ходів наберете 10 балів. За кожну правильну відповідь вам нараховується один бал, за кожну неправильну знімається два бали Хай щастить!", end="\n\n\n")
 
 
 def setDifficulty():
@@ -41,17 +38,28 @@ def setDifficulty():
 
 
 def playLevel(counter, task, list_numbers, difficulty):
-    print("Битва №", counter, end="\n\n")
+    print("\n\nБитва №", counter, end="\n\n")
     print(*list_numbers, end="\n\n")
-    user_number = list_numbers[0]
-    while user_number in list_numbers:
-        user_number = int(
-            input("Із вище наведених чисел виберіть", task[1], "--> "))
-    updateNumbers(list_numbers, user_number, difficulty)
-    if task[0](user_number):
-        return 1
+    user_number = 0
+    try:
+        while user_number not in list_numbers:
+            user_number = input("Із вище наведених чисел виберіть " +
+                                task[1] + ". Якщо такого числа нема натисніть \"Enter\". --> ")
+            user_number = int(user_number)
+        updateNumbers(list_numbers, user_number, difficulty)
+    except:
+        if user_number == "":
+            for elem in list_numbers:
+                if task[0](elem):
+                    return -2
+            return 1
     else:
-        return -2
+        if task[0] == None:
+            return 2
+        if task[0](user_number):
+            return 1
+        else:
+            return -2
 
 
 def updateNumbers(list_numbers, number, difficulty):
