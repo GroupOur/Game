@@ -36,7 +36,7 @@ def isPrime(number):
     return number in prime    
 
 
-def fairyTail():
+def fairyTale():
     print("In the kingdom of Logos you are the last Mathemagician - the keeper of forgotten knowledge. Everyone has given up on theoretical mathematics in favour of computer science, big data and quantum physics. Prove that your field of study is no less competent by correctly matching the numbers with their respectable set as fast as possible. You will have to deal with prime, lucky and Ulam numbers. In order to win you will have to earn 10 points in 15 turns or less. You recieve one point if your answer is correct and lose two if it is incorrect. Good luck, you'll need it!", end="\n\n\n")
 
 
