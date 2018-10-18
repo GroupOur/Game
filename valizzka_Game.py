@@ -1,4 +1,4 @@
-from helperFunctions import *
+from valizzka_helperFunctions import *
 
 
 def Game():
