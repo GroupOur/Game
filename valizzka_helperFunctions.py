@@ -24,14 +24,14 @@ def setDifficulty():
     Some kind of user interface
     returns amount of numbers to be guessed
     """
-    print("Choose the difficulty level")
-    print("< 0-easy 1-normal 2-hard >")
+    print("Виберіть рівень розвитку інопланетних загарбників")
+    print("< 0-легко 1-нормально 2-важко >")
     difficulty = input("Print here: ")
-    if difficulty == "0" or difficulty == "easy":
+    if difficulty == "0" or difficulty == "легко":
         return 25
-    elif difficulty == "1" or difficulty == "normal":
+    elif difficulty == "1" or difficulty == "нормально":
         return 50
-    elif difficulty == "2" or difficulty == "hard":
+    elif difficulty == "2" or difficulty == "важко":
         return 100
     else:
         return setDifficulty()
