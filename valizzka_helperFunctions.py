@@ -1,21 +1,40 @@
 def isUlam(number):
     """
-    (number) --> bool
-    0 < number <= 100
-    Checks if number is Ulam number
+    (0<int<=100) ---> bool
+    Checks if the number is ulam number. Returns True if so, False if else.
     >>> isUlam(5)
     False
-    >>> isUlam(9)
-    False
-    >>> isUlam(72)
+    >>> isUlam(2)
     True
+    >>> isUlam(1)
+    True
+    >>> isUlam(49)
+    False
     """
-    ulams = (1, 2, 3, 4, 6, 8, 11, 13, 16, 18, 26, 28, 36, 38,
-             47, 48, 53, 57, 62, 69, 72, 77, 82, 87, 97, 99)
-    return number in ulams
+    if number < 3:
+        return True
+    ulams = [1, 2]
+    last_elemIndex = len(ulams)-1
+    while ulams[last_elemIndex] < number:
+        try_ulams = []
+        for i in range(last_elemIndex):
+            for j in range(i+1, last_elemIndex+1):
+                try_number = ulams[i]+ulams[j]
+                if try_number not in ulams:
+                    try_ulams.append(try_number)
+        bestElem = min(try_ulams)
+        while try_ulams.count(bestElem) != 1:
+            for i in range(try_ulams.count(bestElem)):
+                try_ulams.remove(bestElem)
+            bestElem = min(try_ulams)
+        ulams.append(bestElem)
+        last_elemIndex += 1
+    if ulams[last_elemIndex] == number:
+        return True
+    return False
 
 
-def fairyTail():
+def fairyTale():
     print("Нашу землю ось-ось захоплять інопланетяни! Їхні технології кращі за наші,проте вони не знають ні чисел Улама, ні простих чисел, ні вдалих! Ваше завдання - захистити людство шляхом класифікації даних вам чисел за цими ознаками. Ви виграєте, якщо за 15 або і менше ходів наберете 10 балів. За кожну правильну відповідь вам нараховується один бал, за кожну неправильну знімається два бали Хай щастить!", end="\n\n\n")
 
 

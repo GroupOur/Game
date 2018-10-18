@@ -2,7 +2,7 @@ from valizzka_helperFunctions import *
 
 
 def Game():
-    fairyTail()
+    fairyTale()
     difficulty = setDifficulty()
     numbers = genNumbers(difficulty)
     # change easy to different
