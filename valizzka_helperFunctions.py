@@ -40,8 +40,9 @@ def fairyTale():
 
 def setDifficulty():
     """
-    Some kind of user interface
-    returns amount of numbers to be guessed
+    (nothing)-->int
+    User interface to pick up difficulty
+    Returns amount of numbers to be guessed
     """
     print("Виберіть рівень розвитку інопланетних загарбників")
     print("< 0-легко 1-нормально 2-важко >")
@@ -57,6 +58,12 @@ def setDifficulty():
 
 
 def playLevel(counter, task, list_numbers, difficulty):
+    """
+    (int,list,list,int)--->int
+    User interface to choose answer
+    Returns the ammount of points you earned based on difficulty level, current task, 
+    current points, current list of numbers, user`s answer.
+    """
     print("\n\nБитва №", counter, end="\n\n")
     print(*list_numbers, end="\n\n")
     user_number = 0
@@ -82,6 +89,12 @@ def playLevel(counter, task, list_numbers, difficulty):
 
 
 def updateNumbers(list_numbers, number, difficulty):
+    """
+    (list,int,int)--->modifies input list
+    Removes given number from the given list and 
+    randomly picks up a new different from others
+    number and adds it to the list
+    """
     import random
     list_numbers.remove(number)
     new_number = random.randrange(1, difficulty+1)
@@ -91,11 +104,20 @@ def updateNumbers(list_numbers, number, difficulty):
 
 
 def genTask():
+    """
+    (nothing)-->str
+    Returns randomly chosen task
+    """
     import random
-    return random.choice(["ulam", "lucky", "easy"])
+    return random.choice(["ulam", "lucky", "prime"])
 
 
 def genNumbers(difficulty):
+    """
+    (int)--->list
+    Given difficulty (range to pick up numbers from) returns randomly chosen list of
+     15 different numbers
+    """
     import random
     numbers = []
     number = 0
