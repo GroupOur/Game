@@ -10,9 +10,29 @@ def isUlam(number):
     >>> isUlam(72)
     True
     """
-    ulams = (1, 2, 3, 4, 6, 8, 11, 13, 16, 18, 26, 28, 36, 38,
-             47, 48, 53, 57, 62, 69, 72, 77, 82, 87, 97, 99)
-    return number in ulams
+    if number < 1:
+        return False
+    elif number < 3:
+        return True
+    ulams = [1, 2]
+    last_elemIndex = len(ulams)-1
+    while ulams[last_elemIndex] < number:
+        try_ulams = []
+        for i in range(last_elemIndex):
+            for j in range(i+1, last_elemIndex+1):
+                try_number = ulams[i]+ulams[j]
+                if try_number not in ulams:
+                    try_ulams.append(try_number)
+        bestElem = min(try_ulams)
+        while try_ulams.count(bestElem) != 1:
+            for i in range(try_ulams.count(bestElem)):
+                try_ulams.remove(bestElem)
+            bestElem = min(try_ulams)
+        ulams.append(bestElem)
+        last_elemIndex += 1
+    if ulams[last_elemIndex] == number:
+        return True
+    return False
 
 
 def isPrime(number):
@@ -32,8 +52,9 @@ def isPrime(number):
     prime = [2]
     for iterator in range(2, 100):
         if pow(2, iterator, iterator) == 2:
-            prime.append(iterator)      
-    return number in prime    
+            prime.append(iterator)
+    return number in prime
+
 
 
 def fairyTale():
