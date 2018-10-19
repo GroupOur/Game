@@ -11,7 +11,9 @@ def isUlam(number):
     >>> isUlam(49)
     False
     """
-    if number < 3:
+    if number < 1:
+        return False
+    elif number < 3:
         return True
     ulams = [1, 2]
     last_elemIndex = len(ulams)-1
@@ -33,6 +35,7 @@ def isUlam(number):
         return True
     return False
 
+
 def isPrime(number):
     """ (int) -> bool
      Precondition: given number must be between 0 and 100
@@ -47,8 +50,9 @@ def isPrime(number):
     prime = [2]
     for iterator in range(2, 100):
         if pow(2, iterator, iterator) == 2:
-            prime.append(iterator)      
-    return number in prime    
+            prime.append(iterator)
+    return number in prime
+
 
 def fairyTale():
     print("Нашу землю ось-ось захоплять інопланетяни! Їхні технології кращі за наші,проте вони не знають ні чисел Улама, ні простих чисел, ні вдалих! Ваше завдання - захистити людство шляхом класифікації даних вам чисел за цими ознаками. Ви виграєте, якщо за 15 або і менше ходів наберете 10 балів. За кожну правильну відповідь вам нараховується один бал, за кожну неправильну знімається два бали Хай щастить!", end="\n\n\n")
