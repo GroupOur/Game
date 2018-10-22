@@ -7,7 +7,7 @@ def Game():
     numbers = genNumbers(difficulty)
     # change easy to different
     tasks = {"ulam": (isUlam, "число Улама"), "lucky": (
-        None, "вдале число"), "prime": (isPrime, "просте чило")}
+        isLucky, "вдале число"), "prime": (isPrime, "просте чило")}
     counter, end, total, goal = 1, 15, 0, 10
     while counter < end + 1 and total < goal:
         current_task = genTask()
