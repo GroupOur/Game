@@ -127,7 +127,7 @@ def updateNumbers(list_numbers, number, difficulty):
 
 def genTask():
     import random
-    return random.choice(["ulam", "lucky", "easy"])
+    return random.choice(["ulam", "lucky", "prime"])
 
 
 def genNumbers(difficulty):
