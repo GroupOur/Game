@@ -60,6 +60,12 @@ def isLucky(number):
     """
     (int>0)-->bool
     Given positive integer returns True if int is lucky, else returns False
+    >>> isLucky(13)
+    True
+    >>> isLucky(2)
+    False
+    >>> isLucky(7)
+    True
     """
     List = range(-1, number*number+9, 2)
     i = 2
