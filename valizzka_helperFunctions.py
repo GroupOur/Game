@@ -84,8 +84,8 @@ def playLevel(counter, task, list_numbers, difficulty):
     user_number = 0
     try:
         while user_number not in list_numbers:
-            user_number = input("Із вище наведених чисел виберіть " +
-                                task[1] + ". Якщо такого числа нема натисніть \"Enter\". --> ")
+            user_number = input("From the aforementioned numbers select " +
+                                task[1] + ". If such number doesn't exist, press \"Enter\". --> ")
             user_number = int(user_number)
         updateNumbers(list_numbers, user_number, difficulty)
     except:
