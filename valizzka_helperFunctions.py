@@ -61,7 +61,6 @@ def isLucky(number):
     (int)-->bool
     Given positive integer returns True if int is lucky, else returns False
     """
-    
 
 
 def fairyTale():
