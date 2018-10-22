@@ -61,6 +61,22 @@ def isLucky(number):
     (int)-->bool
     Given positive integer returns True if int is lucky, else returns False
     """
+    # while True:
+    #     lucky = []
+    #     primes = []
+    #     for i in range(1, number+1):
+    #         if i % i == 1:
+    #             lucky.append(i)
+    #     for digit in lucky:
+    #         if isPrime(digit) and digit not in primes:
+    #             prime = digit
+    #             primes.append(prime)
+    #             break
+    #     for i in range(0, len(lucky), prime-1):
+    #         lucky.remove(i)
+    #         if i==number:
+    #             flag==True
+    #     (lucky.append(1)).sort()
 
 
 def fairyTale():
