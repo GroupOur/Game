@@ -73,6 +73,12 @@ def isLucky(number):
         List = sorted(set(List)-set(List[List[i]::List[i]]))
         i += 1
     return number in List
+    # l = range(1, number + 1, 2)
+    # i = 1
+    # while i < len(l):
+    #     del(l[l[i] - 1::l[i]])
+    #     i += 1
+    # return l
 
 
 def fairyTale():
