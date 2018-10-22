@@ -79,7 +79,7 @@ def setDifficulty():
 
 
 def playLevel(counter, task, list_numbers, difficulty):
-    print("\n\nБитва №", counter, end="\n\n")
+    print("\n\nEncounter №", counter, end="\n\n")
     print(*list_numbers, end="\n\n")
     user_number = 0
     try:
