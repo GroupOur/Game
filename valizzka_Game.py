@@ -15,7 +15,7 @@ def Game():
         print("\nЦя битва принесла вам профіт у", reward,
               'балів. Ваша загальна кількість балів становить', total, end="\n\n\n")
         counter += 1
-    if counter == end+1:
+    if counter == end+1 and goal!=total:
         print("Ви не впоралися із заданням: Землю захоплено")
     elif goal == total:
         print("Ви впоралися із заданням: Землю врятовано!")
