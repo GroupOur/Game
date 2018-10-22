@@ -50,11 +50,10 @@ def isPrime(number):
     False
     """
     prime = [2]
-    for iterator in range(2, 100):
+    for iterator in range(2, number+1):
         if pow(2, iterator, iterator) == 2:
             prime.append(iterator)
     return number in prime
-
 
 
 def fairyTale():
