@@ -16,7 +16,7 @@ def Game():
         print("\nYou scored %i points" % reward,
               'Your total score is', total, end="\n\n\n")
         counter += 1
-    if counter == end+1 and goal!=total:
+    if counter == end+1 and goal != total:
         print("You failed. From this day onwards, no one shall take you seriously")
     elif goal == total:
         print("You succeeded! Now that you have earned yourself a name, more and more people will be intimidated to learn about mathemagic!")
