@@ -34,12 +34,12 @@ def Ulam(lst_ulam=[], lst_not_ulam=[], number=100):
                 try_ulams.remove(bestElem)
             bestElem = min(try_ulams)
         ulams.append(bestElem)
-        if bestElem not in lst_ulam:
-            lst_ulam.append(bestElem)
         last_elemIndex += 1
     for elem in range(1, number+1):
         if elem not in ulams:
             lst_not_ulam.append(elem)
+        else:
+            lst_ulam.append(elem)
 
 
 def isUlam(number):
@@ -112,12 +112,6 @@ def isLucky(num):
     return num in lst_lucky
 
 
-Prime(lst_prime, lst_not_prime)
-Lucky(lst_lucky, lst_not_lucky)
-print(lst_prime)
-print(lst_lucky)
-
-
 def GenNumbers(lst):
     import random
     numbers = []
@@ -127,3 +121,14 @@ def GenNumbers(lst):
     while number in numbers:
         number = random.randrange(1, 100)
     return number
+
+
+if __name__ == "__main__":
+    Prime(lst_prime, lst_not_prime)
+    Lucky(lst_lucky, lst_not_lucky)
+    print(lst_prime)
+    Ulam(lst_ulam, lst_not_ulam)
+    print(lst_lucky)
+    print()
+    print(lst_ulam)
+    print(lst_not_ulam)
