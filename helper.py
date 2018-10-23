@@ -123,11 +123,12 @@ def GenNumbers(lst):
     return number
 
 
+Prime(lst_prime, lst_not_prime)
+Lucky(lst_lucky, lst_not_lucky)
+Ulam(lst_ulam, lst_not_ulam)
+
 if __name__ == "__main__":
-    Prime(lst_prime, lst_not_prime)
-    Lucky(lst_lucky, lst_not_lucky)
     print(lst_prime)
-    Ulam(lst_ulam, lst_not_ulam)
     print(lst_lucky)
     print()
     print(lst_ulam)
