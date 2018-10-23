@@ -4,21 +4,23 @@ import valizzka_helper
 pygame.init()
 pygame.font.init()
 
-#consts
+# consts
 types_num = ["Ulam", "Lucky", "Prime"]
 myfont = pygame.font.SysFont('Comic Sans MS', 20)
 max_step = 10
 size_window_x = 1000
 size_window_y = 500
-#images
+# images
 background_img = pygame.image.load('background.png')
 flask_img_lst = ['flask_blue.png', 'flask_red.png']
-#colors
+# colors
 white = (255, 255, 255)
 black = (0, 0, 0)
 
 # class that represet flasks in game
 # Flask object has coordinates, image, number, directions in which object should move
+
+
 class Flask():
     def __init__(self):
         """
@@ -32,6 +34,8 @@ class Flask():
         self.num = valizzka_helper.GenNumbers(flask_lst)
 
 # Function move each flask
+
+
 def move(flasks):
     """
     (list of Flask objects) ---> nothing
@@ -49,6 +53,8 @@ def move(flasks):
         screen.blit(textsurface, (flask.x + 27, flask.y + 33))
 
 # Function remove clicked flask and generate new flask
+
+
 def click_flask(mouse, flasks):
     """
     (mouse, list of Flask objects)--->
@@ -78,8 +84,10 @@ def click_flask(mouse, flasks):
             step += 1
             type_of_num = random.choice(types_num)
             break
-        
-# Function start new game    
+
+# Function start new game
+
+
 def click_try_again(mouse):
     """
     (mouse)-->nothing
@@ -90,6 +98,8 @@ def click_try_again(mouse):
         step = 0
         score = 0
 # Function draw the game background
+
+
 def draw_game():
     """
     Function for drawing background of the game
@@ -97,9 +107,11 @@ def draw_game():
     screen.blit(background_img, (0, 0))
     pygame.draw.rect(screen, white, pygame.Rect(5, 5, 100, 20))
     textsurface = myfont.render(type_of_num, False, black)
-    screen.blit(textsurface,(30, 0))
-    
+    screen.blit(textsurface, (30, 0))
+
 # Function draw menu background
+
+
 def draw_menu(score):
     """
     (int)--->nothing
@@ -109,10 +121,12 @@ def draw_menu(score):
     pygame.draw.rect(screen, black, pygame.Rect(200, 200, 200, 60))
     pygame.draw.rect(screen, black, pygame.Rect(500, 200, 200, 60))
     textsurface = myfont.render("Score " + str(score), False, white)
-    screen.blit(textsurface,(200, 200))
+    screen.blit(textsurface, (200, 200))
     textsurface = myfont.render("Try again", False, white)
-    screen.blit(textsurface,(500, 200))
-#main                 
+    screen.blit(textsurface, (500, 200))
+
+
+# main
 done = False
 flask_lst = []
 col_flasks = 10
@@ -122,29 +136,29 @@ type_of_num = "Ulam"
 
 for i in range(col_flasks):
     flask_lst.append(Flask())
-    
+
 screen = pygame.display.set_mode((size_window_x, size_window_y))
 clock = pygame.time.Clock()
- 
+
 while not done:
-        if (step == max_step):
-            draw_menu(score)      
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    done = True
-                if event.type == pygame.MOUSEBUTTONUP:
-                    mouse = pygame.mouse.get_pos()
-                    click_try_again(mouse)               
-        else:
-            draw_game()          
-            for event in pygame.event.get():
-                    if event.type == pygame.QUIT:
-                        done = True
-                    if event.type == pygame.MOUSEBUTTONUP:
-                        mouse = pygame.mouse.get_pos()
-                        click_flask(mouse, flask_lst)
-        
-            move(flask_lst)
-            
-        pygame.display.flip()
-        clock.tick(60)
+    if (step == max_step):
+        draw_menu(score)
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                done = True
+            if event.type == pygame.MOUSEBUTTONUP:
+                mouse = pygame.mouse.get_pos()
+                click_try_again(mouse)
+    else:
+        draw_game()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                done = True
+            if event.type == pygame.MOUSEBUTTONUP:
+                mouse = pygame.mouse.get_pos()
+                click_flask(mouse, flask_lst)
+
+        move(flask_lst)
+
+    pygame.display.flip()
+    clock.tick(60)

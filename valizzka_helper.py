@@ -149,7 +149,3 @@ def GenNumbers(lst):
 Prime(lst_prime, lst_not_prime, MAX)
 Lucky(lst_lucky, lst_not_lucky, MAX)
 Ulam(lst_ulam, lst_not_ulam, MAX)
-<<<<<<< HEAD:helper.py
-print(lst_ulam)
-=======
->>>>>>> d9c7a4b9e969a676297aade0fcd8cb2c910d80d7:valizzka_helper.py
