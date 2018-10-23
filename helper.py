@@ -1,3 +1,10 @@
+lst_prime = []
+lst_not_prime = []
+lst_ulam = []
+lst_not_ulam = []
+lst_lucky = []
+lst_not_lucky = []
+
 def isUlam(number):
     """
     (number) --> bool
@@ -35,7 +42,7 @@ def isUlam(number):
     return False
 
 
-def isPrime(number):
+def Prime(lst_prime, lst_not_prime):
     """ (int) -> bool
 
     Precondition: given number must be between 0 and 100
@@ -49,38 +56,48 @@ def isPrime(number):
     >>> isPrime(40)
     False
     """
-    prime = [2]
+    lst_prime.append(2)
+    lst_not_prime.append(1)
     for iterator in range(2, 100):
         if pow(2, iterator, iterator) == 2:
-            prime.append(iterator)
-    return number in prime
+            lst_prime.append(iterator)
+        else:
+            lst_not_prime.append(iterator)
+            
+def isPrime(num):
+    global lst_prime
+    return num in lst_prime
 
 
-def isLucky(number):
-    """
-    (int>0)-->bool
-    Given positive integer returns True if int is lucky, else returns False
-    >>> isLucky(13)
-    True
-    >>> isLucky(2)
-    False
-    >>> isLucky(7)
-    True
-    """
-    List = range(-1, number*number+9, 2)
-    i = 2
-    while List[i:]:
-        List = sorted(set(List)-set(List[List[i]::List[i]]))
-        i += 1
-    return number in List
-    # l = range(1, number + 1, 2)
-    # i = 1
-    # while i < len(l):
-    #     del(l[l[i] - 1::l[i]])
-    #     i += 1
-    # return l
+def Lucky(lst_lucky, lst_not_lucky):
+    lst = [i for i in range(101)]
+    x = 2
+    lst[0] = -1
+    while(x < len(lst)):
+        for i in range(x, len(lst), x):
+            lst[i] = False
+        j = 1
+        while (j < len(lst)):
+            if lst[j] == False:
+                lst_not_lucky.append(lst[j])
+                lst.remove(lst[j])
+            j += 1
+        print(x)
+        print(lst)
+        x = lst[x]
+        
+    for i in lst:
+        lst_lucky.append(i)
 
 
+def isLucky(num):
+    global lst_lucky
+    return num in lst_lucky
+
+Prime(lst_prime, lst_not_prime)
+Lucky(lst_lucky, lst_not_lucky)
+print(lst_prime)
+print(lst_lucky)
 def GenNumbers(lst):
     import random
     numbers = []
@@ -90,4 +107,3 @@ def GenNumbers(lst):
     while number in numbers:
         number = random.randrange(1, 100)
     return number
-print(isPrime(72))
