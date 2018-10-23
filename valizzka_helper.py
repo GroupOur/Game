@@ -59,7 +59,7 @@ def Prime(lst_prime, lst_not_prime, MAX):
 
 def Lucky(lst_lucky, lst_not_lucky, MAX):
     """ (lst, lst, int) -> None
-    Function genearte lst_lucky and lst_not_lucky
+    Function generates lst_lucky and lst_not_lucky
     """
     lst = [i for i in range(MAX + 1)]
     num = 1
