@@ -38,9 +38,9 @@ def isUlam(number):
 def isPrime(number):
     """ (int) -> bool
 
-    Precondition: given number must be between 0 and 100
+    Precondition: given number must be a positive integer.
 
-    This funcion returns true if a number less than 100 is prime and false otherwise.
+    This funcion returns true if the given number is prime and false otherwise.
 
     >>> isPrime(2)
     True
@@ -50,12 +50,13 @@ def isPrime(number):
     False
     """
     prime = [2]
-    for iterator in range(2, 100):
+    for iterator in range(2, number+1):
         if pow(2, iterator, iterator) == 2:
             prime.append(iterator)
     return number in prime
 
 
+<<<<<<< HEAD
 def isLucky(number):
     """
     (int>0)-->bool
@@ -75,6 +76,8 @@ def isLucky(number):
     return number in List
 
 
+=======
+>>>>>>> valdemar
 def fairyTale():
     print("In the kingdom of Logos you are the last Mathemagician - the keeper of forgotten knowledge. Everyone has given up on theoretical mathematics in favour of computer science, big data and quantum physics. Prove that your field of study is no less competent by correctly matching the numbers with their respectable set as fast as possible. You will have to deal with prime, lucky and Ulam numbers. In order to win you will have to earn 10 points in 15 turns or less. You recieve one point if your answer is correct and lose two if it is incorrect. Good luck, you'll need it!", end="\n\n\n")
 
@@ -98,13 +101,13 @@ def setDifficulty():
 
 
 def playLevel(counter, task, list_numbers, difficulty):
-    print("\n\nБитва №", counter, end="\n\n")
+    print("\n\nEncounter №", counter, end="\n\n")
     print(*list_numbers, end="\n\n")
     user_number = 0
     try:
         while user_number not in list_numbers:
-            user_number = input("Із вище наведених чисел виберіть " +
-                                task[1] + ". Якщо такого числа нема натисніть \"Enter\". --> ")
+            user_number = input("From the aforementioned numbers select " +
+                                task[1] + ". If such number doesn't exist, press \"Enter\". --> ")
             user_number = int(user_number)
         updateNumbers(list_numbers, user_number, difficulty)
     except:
