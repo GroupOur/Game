@@ -1,6 +1,6 @@
 import pygame
 import random
-import helper
+import valizzka_helper
 pygame.init()
 pygame.font.init()
 
@@ -29,7 +29,7 @@ class Flask():
         self.img = pygame.image.load(random.choice(flask_img_lst))
         self.move_x = 1.1 + random.random()
         self.move_y = 1.1 + random.random()
-        self.num = helper.GenNumbers(flask_lst)
+        self.num = valizzka_helper.GenNumbers(flask_lst)
 
 # Function move each flask
 def move(flasks):
@@ -61,17 +61,17 @@ def click_flask(mouse, flasks):
             flasks.append(Flask())
             global score, step, type_of_num
             if (type_of_num == 'Ulam'):
-                if (helper.isUlam(int(flask.num)) == True):
+                if (valizzka_helper.isUlam(int(flask.num)) == True):
                     score += 1
                 else:
                     score -= 2
             if (type_of_num == 'Prime'):
-                if (helper.isPrime(int(flask.num)) == True):
+                if (valizzka_helper.isPrime(int(flask.num)) == True):
                     score += 1
                 else:
                     score -= 2
             if (type_of_num == 'Lucky'):
-                if (helper.isLucky(int(flask.num)) == True):
+                if (valizzka_helper.isLucky(int(flask.num)) == True):
                     score += 1
                 else:
                     score -= 2
