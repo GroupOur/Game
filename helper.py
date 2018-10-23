@@ -5,11 +5,10 @@ lst_not_ulam = []
 lst_lucky = []
 lst_not_lucky = []
 MAX = 100
-
 def Ulam(lst_ulam, lst_not_ulam, MAX):
     """
-    (list,list,int)--->nothing
-    Default values : [],[],100
+    (list, list, int) -> nothing
+    Default values : [], [], 100
     For numbers in range from 1 to 100 modifies input lists:
     one list for ulam numbers, another for not ulam numbers
     """
@@ -43,6 +42,9 @@ def Ulam(lst_ulam, lst_not_ulam, MAX):
 
 
 def Prime(lst_prime, lst_not_prime, MAX):
+    """ (lst, lst, int) -> None
+    Function genearte lst_prime and lst_not_prime
+    """   
     lst_prime.append(2)
     lst_not_prime.append(1)
     for iterator in range(2, MAX + 1):
@@ -78,18 +80,33 @@ def Lucky(lst_lucky, lst_not_lucky, MAX):
         lst_lucky.append(i)
 
 def isLucky(num):
+    """(int) -> bool
+    >>> isLucky(3)
+    True
+    """
     global lst_lucky
     return num in lst_lucky
 
 def isPrime(num):
+    """(int) -> bool
+    >>> isPrime(7)
+    True
+    """
     global lst_prime
     return num in lst_prime
 
 def isUlam(number):
+    """(int) -> bool
+    >>> isUlam(99)
+    True
+    """
     global lst_ulam
     return number in lst_ulam
 
 def GenNumbers(lst):
+    """(lst) -> int
+    Function genarates new number depends on exesting lst of flasks  
+    """
     import random
     numbers = []
     primes  = 0
