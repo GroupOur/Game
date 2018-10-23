@@ -92,15 +92,30 @@ def isUlam(number):
 def GenNumbers(lst):
     import random
     numbers = []
+    primes  = 0
+    ulams = 0
+    luckies = 0
     for i in lst:
+        if i in lst_prime: primes += 1        
+        if i in lst_lucky: luckies += 1
+        if i in lst_ulam: ulams += 1
         numbers.append(i.num)
+        
+    if primes == 0:
+        Choice = lst_prime
+    elif ulams == 0:
+        Choice = lst_ulam
+    elif luckies == 0:
+        Choice = lst_lucky
+    else:
+        Choise = random.choice([lst_not_prime, lst_not_lucky, lst_not_ulam])
     number = random.randrange(1, MAX)
     while number in numbers:
-        number = random.randrange(1, MAX)
+        number = random.choice(Choice)
     return number
 
 
 Prime(lst_prime, lst_not_prime, MAX)
 Lucky(lst_lucky, lst_not_lucky, MAX)
 Ulam(lst_ulam, lst_not_ulam, MAX)
-
+print(lst_ulam)
