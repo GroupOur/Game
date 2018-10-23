@@ -4,24 +4,24 @@ lst_ulam = []
 lst_not_ulam = []
 lst_lucky = []
 lst_not_lucky = []
+MAX = 100
 
-
-def Ulam(lst_ulam=[], lst_not_ulam=[], number=100):
+def Ulam(lst_ulam, lst_not_ulam, MAX):
     """
     (list,list,int)--->nothing
     Default values : [],[],100
     For numbers in range from 1 to 100 modifies input lists:
     one list for ulam numbers, another for not ulam numbers
     """
-    if number < 1:
+    if MAX < 1:
         lst_ulam, lst_not_ulam = [], []
-    elif number == 2:
+    elif MAX == 2:
         lst_ulam, lst_not_ulam = [2], []
-    elif number == 2:
+    elif MAX == 2:
         lst_ulam, lst_not_ulam = [2, 3], []
     ulams = [1, 2]
     last_elemIndex = len(ulams)-1
-    while ulams[last_elemIndex] < number:
+    while ulams[last_elemIndex] < MAX:
         try_ulams = []
         for i in range(last_elemIndex):
             for j in range(i+1, last_elemIndex+1):
@@ -35,100 +35,73 @@ def Ulam(lst_ulam=[], lst_not_ulam=[], number=100):
             bestElem = min(try_ulams)
         ulams.append(bestElem)
         last_elemIndex += 1
-    for elem in range(1, number+1):
+    for elem in range(1, MAX + 1):
         if elem not in ulams:
             lst_not_ulam.append(elem)
         else:
             lst_ulam.append(elem)
 
 
-def isUlam(number):
-    """
-    (number) --> bool
-    0 < number <= 100
-    Checks if number is Ulam number
-    >>> isUlam(5)
-    False
-    >>> isUlam(9)
-    False
-    >>> isUlam(72)
-    True
-    """
-    global lst_ulam
-    return number in lst_ulam
-
-
-def Prime(lst_prime, lst_not_prime):
-    """ (int) -> bool
-
-    Precondition: given number must be between 0 and 100
-
-    This funcion returns true if a number less than 100 is prime and false otherwise.
-
-    >>> isPrime(2)
-    True
-    >>> isPrime(5)
-    True
-    >>> isPrime(40)
-    False
-    """
+def Prime(lst_prime, lst_not_prime, MAX):
     lst_prime.append(2)
     lst_not_prime.append(1)
-    for iterator in range(2, 100):
+    for iterator in range(2, MAX + 1):
         if pow(2, iterator, iterator) == 2:
             lst_prime.append(iterator)
         else:
             lst_not_prime.append(iterator)
 
 
-def isPrime(num):
-    global lst_prime
-    return num in lst_prime
-
-
-def Lucky(lst_lucky, lst_not_lucky):
-    lst = [i for i in range(101)]
-    x = 2
+def Lucky(lst_lucky, lst_not_lucky, MAX):
+    """ (lst, lst, int) -> None
+    Function genearte lst_lucky and lst_not_lucky
+    """
+    lst = [i for i in range(MAX + 1)]
+    num = 1
     lst[0] = -1
-    while(x < len(lst)):
+    while(num < len(lst)):
+        if num == 1:
+            x = lst[num + 1]
+        else:
+            x = lst[num]
         for i in range(x, len(lst), x):
+            lst_not_lucky.append(lst[i])
             lst[i] = False
         j = 1
         while (j < len(lst)):
             if lst[j] == False:
-                lst_not_lucky.append(lst[j])
                 lst.remove(lst[j])
             j += 1
-        print(x)
-        print(lst)
-        x = lst[x]
+        num += 1
 
     for i in lst:
         lst_lucky.append(i)
-
 
 def isLucky(num):
     global lst_lucky
     return num in lst_lucky
 
+def isPrime(num):
+    global lst_prime
+    return num in lst_prime
+
+def isUlam(number):
+    global lst_ulam
+    return number in lst_ulam
 
 def GenNumbers(lst):
     import random
     numbers = []
     for i in lst:
         numbers.append(i.num)
-    number = random.randrange(1, 100)
+    number = random.randrange(1, MAX)
     while number in numbers:
-        number = random.randrange(1, 100)
+        number = random.randrange(1, MAX)
     return number
 
 
-if __name__ == "__main__":
-    Prime(lst_prime, lst_not_prime)
-    Lucky(lst_lucky, lst_not_lucky)
-    print(lst_prime)
-    Ulam(lst_ulam, lst_not_ulam)
-    print(lst_lucky)
-    print()
-    print(lst_ulam)
-    print(lst_not_ulam)
+
+Prime(lst_prime, lst_not_prime, MAX)
+Lucky(lst_lucky, lst_not_lucky, MAX)
+Ulam(lst_ulam, lst_not_ulam, MAX)
+
