@@ -32,6 +32,7 @@ class Flask():
         self.move_y = 1 + random.random()
         self.num = helper.GenNumbers(flask_lst)
 
+
 def move(flasks):
     for flask in flasks:
         textsurface = myfont.render(str(flask.num), False, white)
@@ -42,12 +43,13 @@ def move(flasks):
         flask.x += flask.move_x
         flask.y += flask.move_y
         screen.blit(flask.img, (flask.x, flask.y))
-        screen.blit(textsurface,(flask.x + 35, flask.y + 40))
-  
+        screen.blit(textsurface, (flask.x + 35, flask.y + 40))
+
+
 def click(mouse, flasks):
     for flask in flasks:
         if (flask.x + 80 > mouse[0] > flask.x) and\
-        (flask.y + 80  > mouse[1] > flask.y):
+                (flask.y + 80 > mouse[1] > flask.y):
             flasks.remove(flask)
             flasks.append(Flask())
             global score, step, type_of_num
