@@ -23,6 +23,9 @@ black = (0, 0, 0)
 
 class Flask():
     def __init__(self):
+        """
+        creation of potion item (number)
+        """
         self.x = random.randint(100, size_window_x - 100)
         self.y = random.randint(100, size_window_y - 200)
         self.img = pygame.image.load(random.choice(flask_img_lst))
@@ -34,6 +37,10 @@ class Flask():
 
 
 def move(flasks):
+    """
+    (list of Flask objects) ---> nothing
+    Function to set up the movement for each object Flask
+    """
     for flask in flasks:
         textsurface = myfont.render(str(flask.num), False, white)
         if (flask.x >= 920) or (flask.x <= 100):
@@ -49,6 +56,10 @@ def move(flasks):
 
 
 def click_flask(mouse, flasks):
+    """
+    (mouse, list of Flask objects)--->
+    Function to count total ammount of points based on choise of the number
+    """
     for flask in flasks:
         if (flask.x + 80 > mouse[0] > flask.x) and\
                 (flask.y + 80 > mouse[1] > flask.y):
@@ -78,6 +89,10 @@ def click_flask(mouse, flasks):
 
 
 def click_try_again(mouse):
+    """
+    (mouse)-->nothing
+    Function for button "Retry"
+    """
     global score, step
     if (700 > mouse[0] > 500) and (260 > mouse[1] > 200):
         step = 0
@@ -86,6 +101,9 @@ def click_try_again(mouse):
 
 
 def draw_game():
+    """
+    Function for drawing background of the game
+    """
     screen.blit(background_img, (0, 0))
     pygame.draw.rect(screen, white, pygame.Rect(5, 5, 100, 20))
     textsurface = myfont.render(type_of_num, False, black)
@@ -95,6 +113,10 @@ def draw_game():
 
 
 def draw_menu(score):
+    """
+    (int)--->nothing
+    Function for drawing end-menu with button retry and total score
+    """
     screen.blit(background_img, (0, 0))
     pygame.draw.rect(screen, black, pygame.Rect(200, 200, 200, 60))
     pygame.draw.rect(screen, black, pygame.Rect(500, 200, 200, 60))
