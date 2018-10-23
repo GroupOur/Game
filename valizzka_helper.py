@@ -6,11 +6,11 @@ lst_lucky = []
 lst_not_lucky = []
 MAX = 100
 
+
 def Ulam(lst_ulam, lst_not_ulam, MAX):
     """
     (list,list,int)--->nothing
-    Default values : [],[],100
-    For numbers in range from 1 to 100 modifies input lists:
+    For numbers in range from 1 to MAx modifies input lists:
     one list for ulam numbers, another for not ulam numbers
     """
     if MAX < 1:
@@ -43,6 +43,11 @@ def Ulam(lst_ulam, lst_not_ulam, MAX):
 
 
 def Prime(lst_prime, lst_not_prime, MAX):
+    """
+    (list,list,int)--->nothing
+    For numbers in range from 1 to MAx modifies input lists:
+    one list for prime numbers, another for not prime numbers
+    """
     lst_prime.append(2)
     lst_not_prime.append(1)
     for iterator in range(2, MAX + 1):
@@ -77,19 +82,45 @@ def Lucky(lst_lucky, lst_not_lucky, MAX):
     for i in lst:
         lst_lucky.append(i)
 
+
 def isLucky(num):
+    """
+    (int)--> bool
+    Returns True if num is lucky, else - False
+    >>> isLucky(1)
+    True
+    """
     global lst_lucky
     return num in lst_lucky
 
+
 def isPrime(num):
+    """
+    (int)--> bool
+    Returns True if num is prime, else - False
+    >>> isLucky(7)
+    True
+    """
     global lst_prime
     return num in lst_prime
 
+
 def isUlam(number):
+    """
+    (int)--> bool
+    Returns True if num is Ulam number, else - False
+    >>> isLucky(3)
+    True
+    """
     global lst_ulam
     return number in lst_ulam
 
+
 def GenNumbers(lst):
+    """
+    (list)-->list
+    Generates sequence of random numbers from 1 to Max
+    """
     import random
     numbers = []
     for i in lst:
@@ -103,4 +134,3 @@ def GenNumbers(lst):
 Prime(lst_prime, lst_not_prime, MAX)
 Lucky(lst_lucky, lst_not_lucky, MAX)
 Ulam(lst_ulam, lst_not_ulam, MAX)
-
