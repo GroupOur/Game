@@ -1,14 +1,6 @@
 import pygame
 import random
-<<<<<<< HEAD
 import valizzka_Game_helper
-=======
-<<<<<<< HEAD
-import valizzka_Game_helper
-=======
-import valizzka_helper
->>>>>>> 1d2d26e910bc0cd651685654485caf528020a668
->>>>>>> b2c0e503787ff19011f58b433d27c3d9e34c8b9f
 pygame.init()
 pygame.font.init()
 
@@ -39,15 +31,7 @@ class Flask():
         self.img = pygame.image.load(random.choice(flask_img_lst))
         self.move_x = 1.1 + random.random()
         self.move_y = 1.1 + random.random()
-<<<<<<< HEAD
         self.num = valizzka_Game_helper.GenNumbers(flask_lst)
-=======
-<<<<<<< HEAD
-        self.num = valizzka_Game_helper.GenNumbers(flask_lst)
-=======
-        self.num = valizzka_helper.GenNumbers(flask_lst)
->>>>>>> 1d2d26e910bc0cd651685654485caf528020a668
->>>>>>> b2c0e503787ff19011f58b433d27c3d9e34c8b9f
 
 # Function move each flask
 
@@ -83,41 +67,17 @@ def click_flask(mouse, flasks):
             flasks.append(Flask())
             global score, step, type_of_num
             if (type_of_num == 'Ulam'):
-<<<<<<< HEAD
                 if (valizzka_Game_helper.isUlam(int(flask.num)) == True):
-=======
-<<<<<<< HEAD
-                if (valizzka_Game_helper.isUlam(int(flask.num)) == True):
-=======
-                if (valizzka_helper.isUlam(int(flask.num)) == True):
->>>>>>> 1d2d26e910bc0cd651685654485caf528020a668
->>>>>>> b2c0e503787ff19011f58b433d27c3d9e34c8b9f
                     score += 1
                 else:
                     score -= 2
             if (type_of_num == 'Prime'):
-<<<<<<< HEAD
                 if (valizzka_Game_helper.isPrime(int(flask.num)) == True):
-=======
-<<<<<<< HEAD
-                if (valizzka_Game_helper.isPrime(int(flask.num)) == True):
-=======
-                if (valizzka_helper.isPrime(int(flask.num)) == True):
->>>>>>> 1d2d26e910bc0cd651685654485caf528020a668
->>>>>>> b2c0e503787ff19011f58b433d27c3d9e34c8b9f
                     score += 1
                 else:
                     score -= 2
             if (type_of_num == 'Lucky'):
-<<<<<<< HEAD
                 if (valizzka_Game_helper.isLucky(int(flask.num)) == True):
-=======
-<<<<<<< HEAD
-                if (valizzka_Game_helper.isLucky(int(flask.num)) == True):
-=======
-                if (valizzka_helper.isLucky(int(flask.num)) == True):
->>>>>>> 1d2d26e910bc0cd651685654485caf528020a668
->>>>>>> b2c0e503787ff19011f58b433d27c3d9e34c8b9f
                     score += 1
                 else:
                     score -= 2
